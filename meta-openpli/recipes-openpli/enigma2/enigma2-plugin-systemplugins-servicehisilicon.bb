@@ -12,7 +12,7 @@ DEPENDS = "enigma2"
 RDEPENDS:${PN} = "enigma2"
 
 SRCREV = "${AUTOREV}"
-SERVICEHISILICON_BRANCH ?= "kirkstone"
+SERVICEHISILICON_BRANCH ?= "scarthgap"
 SRC_URI = "git://github.com/OpenPLi/servicehisilicon.git;branch=${SERVICEHISILICON_BRANCH};protocol=https \
            file://remove-redundant-c17-check.patch \
 "
