@@ -22,7 +22,7 @@ RRECOMMENDS:${PN} = "unrar"
 
 inherit gittag update-rc.d
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/pyload/pyload.git;protocol=https;branch=main \

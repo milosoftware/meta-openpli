@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 
 inherit gitpkgv autotools pkgconfig python3-compileall
 
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 VER ?= "${@bb.utils.contains('MACHINE_FEATURES', 'hisil', '-v2', '', d)}"
 

@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv pkgconfig scikit-build-core
 
-PV = "3.10.0.+git${SRCPV}"
+PV = "3.10.0.+git"
 PKGV = "3.10.0+git${GITPKGV}"
 
 do_install:append() {

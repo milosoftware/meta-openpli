@@ -4,7 +4,7 @@ MAINTAINER = "PLi team"
 require conf/license/openpli-gplv2.inc
 inherit allarch gitpkgv
 
-PV = "3+git${SRCPV}"
+PV = "3+git"
 PKGV = "3+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenPLi/tuxbox-xml.git;protocol=https;branch=master"

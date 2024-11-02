@@ -12,7 +12,7 @@ SRC_URI = " \
     "
 
 UPSTREAMVERSION = "1.0d"
-PV = "${UPSTREAMVERSION}+git${SRCPV}"
+PV = "${UPSTREAMVERSION}+git"
 
 S = "${WORKDIR}/git"
 BUILD = "${WORKDIR}/git"

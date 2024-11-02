@@ -92,7 +92,7 @@ S = "${WORKDIR}/git"
 
 inherit autotools gitpkgv pkgconfig python3-compileall
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 EXTRA_OECONF = "\

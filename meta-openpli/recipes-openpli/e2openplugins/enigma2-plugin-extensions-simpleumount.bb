@@ -3,7 +3,7 @@ DESCRIPTION = "Unmounter for mass storage devices"
 MAINTAINTER = "ambrosa"
 
 inherit gitpkgv
-PV = "0.1+git${SRCPV}"
+PV = "0.1+git"
 PKGV = "0.1+git${GITPKGV}"
 PR = "r0"
 

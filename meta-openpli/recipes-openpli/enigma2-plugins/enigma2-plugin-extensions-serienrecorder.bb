@@ -20,7 +20,7 @@ S = "${WORKDIR}/git"
 
 inherit allarch gitpkgv setuptools3-openplugins python3-compileall
 
-PV = "1+git${SRCPV}"
+PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 PR = "r1"
 

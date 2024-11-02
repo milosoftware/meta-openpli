@@ -14,7 +14,7 @@ PACKAGES = "\
 
 inherit gitpkgv python3native pkgconfig gettext python3targetconfig
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 # make the origin overridable from OE config, for local mirroring

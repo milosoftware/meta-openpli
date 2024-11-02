@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fc178bcd425090939a8b634d1d6a9594"
 
 inherit gitpkgv python3native
 
-PV = "2+${SRCPV}"
+PV = "2+git"
 PKGV = "2+${GITPKGV}"
 PR = "r0"
 

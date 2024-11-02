@@ -40,7 +40,7 @@ CPPFLAGS = ""
 CXX = ""
 CXXFLAGS = ""
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 # make the origin overridable from OE config, for local mirroring

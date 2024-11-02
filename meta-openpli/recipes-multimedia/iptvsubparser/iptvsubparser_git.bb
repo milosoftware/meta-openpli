@@ -6,7 +6,7 @@ DEPENDS = "python3"
 
 inherit gitpkgv python3native
 
-PV = "1.1+git${SRCPV}"
+PV = "1.1+git"
 PKGV = "1.1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/e2isubparser.git;protocol=https;branch=master \

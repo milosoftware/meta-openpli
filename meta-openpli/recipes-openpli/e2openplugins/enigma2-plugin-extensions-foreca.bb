@@ -3,7 +3,7 @@ DESCRIPTION = "Weather forecast for the upcoming 10 days"
 RDEPENDS:${PN} = "python3-html python3-requests"
 
 inherit gitpkgv
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 PR = "r1"
 

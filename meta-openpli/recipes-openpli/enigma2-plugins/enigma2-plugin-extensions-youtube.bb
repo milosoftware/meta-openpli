@@ -9,7 +9,7 @@ SRC_URI = "git://github.com/Taapat/enigma2-plugin-youtube.git;protocol=https;bra
 S = "${WORKDIR}/git"
 
 inherit gitpkgv python3-compileall
-PV = "1+git${SRCPV}"
+PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 
 inherit setuptools3-openplugins

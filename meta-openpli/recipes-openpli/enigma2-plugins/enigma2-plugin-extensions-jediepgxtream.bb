@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/kiddac/Jedi-EPG-XStream"
 
 inherit gitpkgv allarch python3-compileall
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/kiddac/Jedi-EPG-XStream.git;protocol=https;branch=main \

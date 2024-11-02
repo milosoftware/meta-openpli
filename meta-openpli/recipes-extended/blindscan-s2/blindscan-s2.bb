@@ -8,7 +8,7 @@ SRC_URI = "git://bitbucket.org/majortom/blindscan-s2.git;protocol=https;branch=m
 	 file://support-enigma2.patch"
 
 inherit gitpkgv
-PV = "1+git${SRCPV}"
+PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 
 S = "${WORKDIR}/git"

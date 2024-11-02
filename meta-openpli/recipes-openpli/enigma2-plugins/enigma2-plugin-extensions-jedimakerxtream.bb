@@ -7,7 +7,7 @@ inherit gitpkgv allarch python3-compileall
 
 SRCREV="${AUTOREV}"
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/WanWizard/Jedi_Maker_Xtream.git;protocol=https;branch=master"

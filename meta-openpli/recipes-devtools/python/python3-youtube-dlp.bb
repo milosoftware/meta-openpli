@@ -10,8 +10,8 @@ DEPENDS = "libxml2 bash-completion python3-hatchling-native"
 
 inherit python_flit_core python3-dir gittag
 
-PV = "git${SRCPV}"
-PKGV = "${GITPKGVTAG}"
+PV = "20241022+git"
+PKGV = "20241022+${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/yt-dlp/yt-dlp.git;protocol=https;branch=master"
 

@@ -8,7 +8,7 @@ CLEANBROKEN = "1"
 
 inherit gitpkgv gittag
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 # make the origin overridable from OE config, for local mirroring

@@ -3,7 +3,7 @@ DESCRIPTION = "QuadPiP plugin for VU+ UHD receivers"
 require conf/license/openpli-gplv2.inc
 
 inherit gitpkgv python3-compileall
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 S = "${WORKDIR}/git"

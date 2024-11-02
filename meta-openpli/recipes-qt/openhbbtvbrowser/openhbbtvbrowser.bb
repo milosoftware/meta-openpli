@@ -9,7 +9,7 @@ DEPENDS = "qtwebengine"
 
 inherit gitpkgv
 SRCREV = "${AUTOREV}"
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/openhbbtvbrowser/openhbbtvbrowser.git;protocol=https;branch=master \

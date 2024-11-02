@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/OpenPLi/tuxtxt.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git/tuxtxt"
 
-PV = "2.0+git${SRCPV}"
+PV = "2.0+git"
 PKGV = "2.0+git${GITPKGV}"
 
 PACKAGES = "${PN}-src ${PN}-dev ${PN}-dbg ${PN}"

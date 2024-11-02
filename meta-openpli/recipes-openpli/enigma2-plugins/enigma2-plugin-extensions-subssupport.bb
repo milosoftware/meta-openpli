@@ -15,7 +15,7 @@ SRC_URI:append = " file://0002-python3-hardlink.patch"
 
 S = "${WORKDIR}/git"
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 FILES:${PN} = "${libdir}/enigma2/python/Plugins/Extensions/SubsSupport \

@@ -18,7 +18,7 @@ RDEPENDS:${PN} = " \
 
 S = "${WORKDIR}/git"
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 do_install:append() {

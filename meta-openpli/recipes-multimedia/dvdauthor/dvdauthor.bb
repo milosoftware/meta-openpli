@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/ldo/dvdauthor.git;protocol=https;branch=master \
 
 inherit gittag autotools gettext pkgconfig
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 S = "${WORKDIR}/git"

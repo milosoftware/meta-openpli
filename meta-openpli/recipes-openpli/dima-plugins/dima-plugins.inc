@@ -6,7 +6,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv setuptools3-openplugins python3-compileall
 
-PV = "1+git${SRCPV}"
+PV = "1+git"
 PKGV = "1+git${GITPKGV}"
 
 do_install:append() {

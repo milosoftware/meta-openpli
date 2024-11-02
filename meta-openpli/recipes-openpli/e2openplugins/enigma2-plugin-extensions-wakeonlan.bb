@@ -5,6 +5,6 @@ require conf/license/license-gplv2.inc
 require openplugins-distutils.inc
 
 inherit gitpkgv
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 PR = "r0"

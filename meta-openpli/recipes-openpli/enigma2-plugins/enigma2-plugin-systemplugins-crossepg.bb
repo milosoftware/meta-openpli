@@ -14,7 +14,7 @@ SRC_URI = " git://github.com/oe-alliance/e2openplugin-CrossEPG.git;protocol=http
 			file://fix-boxbranding-import.patch \
 			"
 
-PV = "0.9.0+gitr${SRCPV}"
+PV = "0.9.0+gitr"
 PKGV = "0.9.0+gitr${GITPKGV}"
 PR = "r0"
 

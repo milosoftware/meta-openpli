@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/Barracuda09/SATPI.git;protocol=http;branch=master;pr
     file://satpi.sh \
 "
 
-PV = "git${SRCPV}"
+PV = "git"
 
 S = "${WORKDIR}/git"
 BUILD = "${WORKDIR}/git"

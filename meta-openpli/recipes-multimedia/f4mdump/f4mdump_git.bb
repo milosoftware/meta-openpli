@@ -7,7 +7,7 @@ RDEPENDS:${PN} += "wget"
 require conf/license/openpli-gplv2.inc
 inherit gitpkgv
 
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 PR = "r0"
 

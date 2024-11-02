@@ -10,7 +10,7 @@ RDEPENDS:${PN} = "python3-circuits python3-circuits-bricks python3-rbtranslation
 inherit gitpkgv
 
 SRCREV = "${AUTOREV}"
-PV = "0.3+git${SRCPV}"
+PV = "0.3+git"
 PKGV = "0.3+git${GITPKGV}"
 
 SRC_URI = "git://github.com/mnlipp/CoCy;protocol=https;branch=master"

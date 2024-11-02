@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a23a74b3f4caf9616230789d94217acb"
 
 inherit gitpkgv setuptools3-openplugins gettext python3-compileall
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/OpenViX/HRTunerProxy.git;protocol=https;branch=master"

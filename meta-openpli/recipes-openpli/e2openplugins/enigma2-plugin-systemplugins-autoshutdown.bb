@@ -4,7 +4,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit autotools gettext gitpkgv
 
-PV = "0.6+git${SRCPV}"
+PV = "0.6+git"
 PKGV = "0.6+git${GITPKGV}"
 PR = "r0"
 

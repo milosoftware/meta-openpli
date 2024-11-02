@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/vuplus-com/dvbapp.git;protocol=https;branch=${BRANCH
 "
 
 inherit gitpkgv python3native
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 DEPENDS = "djmount fuse libupnp"

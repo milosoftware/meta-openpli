@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://usr/share/enigma2/PLi-HD/skin.xml;beginline=3;endline
 
 inherit gitpkgv allarch
 
-PV = "0.1+git${SRCPV}"
+PV = "0.1+git"
 PKGV = "0.1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/littlesat/skin-PLiHD.git;protocol=https;branch=master"

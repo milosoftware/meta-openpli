@@ -1,6 +1,6 @@
 LICENSE = "CLOSED"
 
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://gitlab.openpli.org/openpli/hanssettings.git;protocol=https;branch=master"

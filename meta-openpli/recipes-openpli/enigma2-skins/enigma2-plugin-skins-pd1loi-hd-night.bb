@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4ae09d45eac4aa08d013b5f2e01c67f6"
 
 inherit gitpkgv allarch python3-compileall
 
-PV = "2.6.1+git${SRCPV}"
+PV = "2.6.1+git"
 PKGV = "2.6.1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/PD1LOI/Pd1loi-HD-night.git;protocol=https;branch=main"

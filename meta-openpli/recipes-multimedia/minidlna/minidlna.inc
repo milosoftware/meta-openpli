@@ -8,7 +8,7 @@ LICENSE_FLAGS = "commercial"
 
 inherit gitpkgv
 
-PV = "1.3.1+git${SRCPV}"
+PV = "1.3.1+git"
 PKGV = "1.3.1+git${GITPKGV}"
 DEPENDS = "libexif libav libjpeg-turbo libvorbis flac libid3tag sqlite3"
 

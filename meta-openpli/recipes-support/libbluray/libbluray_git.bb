@@ -12,7 +12,7 @@ SRC_URI := "${SRC_ORIGIN} "
 
 inherit gittag autotools pkgconfig
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 S="${WORKDIR}/git"

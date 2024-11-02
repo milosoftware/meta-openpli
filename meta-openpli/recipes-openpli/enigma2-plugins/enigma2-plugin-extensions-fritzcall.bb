@@ -13,7 +13,7 @@ SRC_URI = "\
 	file://git/setup_translate.py \
 	"
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "git${GITPKGV}"
 
 PACKAGE_ARCH = "all"

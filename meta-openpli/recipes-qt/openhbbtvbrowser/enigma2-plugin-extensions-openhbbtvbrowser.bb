@@ -11,8 +11,8 @@ inherit python3-compileall
 
 inherit gitpkgv
 SRCREV = "${AUTOREV}"
-PV = "git${SRCPV}"
-PKGV = "git${GITPKGV}"
+PV = "1.0+git"
+PKGV = "1.0+git${GITPKGV}"
 PR = "r1"
 
 SRC_URI = "git://github.com/openhbbtvbrowser/enigma2-plugin-extensions-openhbbtvbrowser.git;protocol=https;branch=master \

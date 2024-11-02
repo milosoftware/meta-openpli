@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
 inherit gittag cmake pkgconfig
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI[sha256sum] = "84db1d332e27f0c6c28e261f4993f4b7c2953761991c328fd0f195260d26c60e"

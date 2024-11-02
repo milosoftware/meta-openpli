@@ -9,7 +9,7 @@ SRC_URI = "git://github.com/OpenPLi/tuxtxt.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git/libtuxtxt"
 
-PV = "2.0+git${SRCPV}"
+PV = "2.0+git"
 PKGV = "2.0+git${GITPKGV}"
 
 EXTRA_OECONF = "--with-boxtype=generic DVB_API_VERSION=5 --without-debug"

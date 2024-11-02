@@ -7,7 +7,7 @@ RDEPENDS:${PN} = "\
 	"
 
 inherit gitpkgv
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 
 require conf/license/license-gplv2.inc

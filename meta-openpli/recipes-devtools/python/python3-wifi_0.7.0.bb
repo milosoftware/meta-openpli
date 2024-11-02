@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://README;md5=54307cbab01c3aad9adf7605132bcf31"
 
 inherit gitpkgv setuptools3
 
-PV = "0.7.0+git${SRCPV}"
+PV = "0.7.0+git"
 PKGV = "0.7.0+git${GITPKGV}"
 PR = "r2"
 

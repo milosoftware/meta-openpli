@@ -114,7 +114,7 @@ RRECOMMENDS:${PN}-build-dependencies = "\
 
 inherit gitpkgv setuptools3 python3targetconfig
 
-PV = "${PYTHON_BASEVERSION}+git${SRCPV}"
+PV = "${PYTHON_BASEVERSION}+git"
 PKGV = "${PYTHON_BASEVERSION}+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "scarthgap"

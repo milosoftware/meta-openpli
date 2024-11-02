@@ -15,8 +15,8 @@ SRC_URI = "git://github.com/oe-mirrors/livestreamersrv;protocol=https;branch=str
 
 S = "${WORKDIR}/git"
 
-PV = "git${SRCPV}"
-PKGV = "${GITPKGVTAG}"
+PV = "6.11.0+git"
+PKGV = "6.11.0+${GITPKGVTAG}"
 
 do_install:append() {
     install -d ${D}${sbindir}

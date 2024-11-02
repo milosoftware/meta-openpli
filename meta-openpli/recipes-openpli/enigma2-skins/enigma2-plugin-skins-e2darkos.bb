@@ -7,7 +7,7 @@ RRECOMMENDS:${PN} = "enigma2-boxlogos"
 
 inherit gitpkgv allarch python3-compileall
 
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://github.com/DimitarCC/E2-DarkOS-skin.git;protocol=https;branch=main"

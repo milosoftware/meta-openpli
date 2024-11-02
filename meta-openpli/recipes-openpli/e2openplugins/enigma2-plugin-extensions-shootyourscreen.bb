@@ -4,7 +4,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 RDEPENDS:${PN} = "aio-grab"
 
 inherit gitpkgv
-PV = "0.2+git${SRCPV}"
+PV = "0.2+git"
 PKGV = "0.2+git${GITPKGV}"
 PR = "r0"
 

@@ -24,7 +24,7 @@ RDEPENDS:${PN} = "python3-core \
 
 inherit setuptools3 python3-dir python3-compileall gitpkgv
 
-PV = "6.8.3+git${SRCPV}"
+PV = "6.8.3+git"
 PKGV = "6.8.3+git${GITPKGV}"
 
 SRCREV_plugins = "${AUTOREV}"

@@ -9,7 +9,7 @@ inherit autotools-brokensep gitpkgv python3-compileall gettext
 SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=https;branch=master"
 SRC_URI:append = " file://add-dummy-boxbranding.patch"
 
-PV = "3.3+git${SRCPV}"
+PV = "3.3+git"
 PKGV = "3.3+git${GITPKGV}"
 PR = "r0"
 

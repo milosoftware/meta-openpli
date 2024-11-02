@@ -11,7 +11,7 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv python3-compileall
 
-PV = "py3-git${SRCPV}"
+PV = "py3-git"
 PKGV = "py3-git${GITPKGV}"
 
 inherit setuptools3-openplugins

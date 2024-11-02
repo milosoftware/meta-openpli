@@ -13,7 +13,7 @@ inherit autotools pkgconfig gitpkgv
 
 GSTVERSION = "1.0"
 
-PV = "${GSTVERSION}+git${SRCPV}"
+PV = "${GSTVERSION}+git"
 PKGV = "${GSTVERSION}+git${GITPKGV}"
 
 EXTRA_OECONF = "--with-gstversion=${GSTVERSION}"

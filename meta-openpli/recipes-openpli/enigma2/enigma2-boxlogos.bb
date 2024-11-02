@@ -8,7 +8,7 @@ ALLOW_EMPTY:${PN} = "1"
 
 inherit gitpkgv python3native
 
-PV = "1.0+gitr${SRCPV}"
+PV = "1.0+gitr"
 PKGV = "1.0+gitr${GITPKGV}"
 
 do_configure[nostamp] = "1"

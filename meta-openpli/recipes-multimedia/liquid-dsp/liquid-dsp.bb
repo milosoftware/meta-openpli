@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=860e4083ceb93ce0939b1a58fcaacb53"
 
 inherit gittag
 
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/jgaeddert/liquid-dsp.git;protocol=https;branch=master"

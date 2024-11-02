@@ -23,7 +23,7 @@ RDEPENDS:${PN} = "\
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit gittag python3-compileall
-PV = "git${SRCPV}"
+PV = "git"
 PKGV = "${GITPKGVTAG}"
 
 require openplugins-distutils.inc

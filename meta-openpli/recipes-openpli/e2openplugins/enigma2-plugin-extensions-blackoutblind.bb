@@ -2,7 +2,7 @@ MODULE = "BlackoutBlind"
 DESCRIPTION = "Blackout blind by mrvica, puts a black bar on top of the screen to hide VBI lines"
 
 inherit gitpkgv
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 PKGV = "1.0+git${GITPKGV}"
 PR = "r1"
 
