@@ -12,7 +12,7 @@ PKGV = "1.0+git${GITPKGV}"
 SRC_URI = "git://github.com/Huevos/iptv-org-playlists-plugin-for-enigma2.git;protocol=https;branch=master"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-requests \
+    python3-requests \
     "
 
 S = "${WORKDIR}/git"
