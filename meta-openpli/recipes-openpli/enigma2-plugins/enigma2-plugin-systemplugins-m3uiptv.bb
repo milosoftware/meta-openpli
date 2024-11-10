@@ -6,7 +6,9 @@ HOMEPAGE = "https://github.com/DimitarCC"
 
 inherit gitpkgv allarch gettext python3-compileall
 
-PV = "1.0+git"
+RDEPENDS_${PN} = "${PYTHON_PN}-requests"
+
+PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://github.com/DimitarCC/iptv-m3u-reader.git;protocol=https;branch=main"
