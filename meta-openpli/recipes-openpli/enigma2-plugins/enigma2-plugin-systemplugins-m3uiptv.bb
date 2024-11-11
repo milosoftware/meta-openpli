@@ -6,7 +6,7 @@ HOMEPAGE = "https://github.com/DimitarCC"
 
 inherit gitpkgv allarch gettext python3-compileall
 
-RDEPENDS_${PN} = "${PYTHON_PN}-requests"
+RDEPENDS_${PN} = "${PYTHON_PN}-multiprocessing ${PYTHON_PN}-requests"
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
