@@ -105,6 +105,10 @@ do_install() {
 #	Image version
 
 	IMAGE_VERSION=`echo ${DISTRO_VERSION} | cut -d "-" -f 1`
+	IMAGE_TYPE=$DISTRO_TYPE
+	if [ "$IMAGE_TYPE" == "$IMAGE_VERSION" ]; then
+		IMAGE_TYPE=
+	fi
 
 #	Kernel version
 
@@ -118,7 +122,6 @@ do_install() {
 #	OE revision info
 
 	OE_REVISION=`cd ${OPENPLI_BASE} && git rev-list --count HEAD`
-	OE_HASH=`cd ${OPENPLI_BASE} && git rev-parse --short HEAD`
 
 #	OE-A compatible machine names
 
@@ -259,61 +262,61 @@ do_install() {
 #	Generate the info file
 
 	install -d ${D}${libdir}
-	printf "architecture=${DEFAULTTUNE}\n" > ${D}${INFOFILE}
+	printf "architecture='${DEFAULTTUNE}'\n" > ${D}${INFOFILE}
 	printf "avjack=${HAVE_AV_JACK}\n" >> ${D}${INFOFILE}
-	printf "blindscanbinary=${BLINDSCAN_BINARY}\n" >> ${D}${INFOFILE}
-	printf "brand=${BRAND_OEM}\n" >> ${D}${INFOFILE}
+	printf "blindscanbinary='${BLINDSCAN_BINARY}'\n" >> ${D}${INFOFILE}
+	printf "brand='${BRAND_OEM}'\n" >> ${D}${INFOFILE}
 	printf "ci=${HAVE_CI}\n" >> ${D}${INFOFILE}
 	printf "compiledate='${DATE}'\n" >> ${D}${INFOFILE}
 	printf "dboxlcd=${SUPPORT_DBOXLCD}\n" >> ${D}${INFOFILE}
-	printf "developername=${DEVELOPER_NAME}\n" >> ${D}${INFOFILE}
-	printf "displaybrand=${MACHINE_BRAND}\n" >> ${D}${INFOFILE}
-	printf "displaydistro=OpenPLi\n" >> ${D}${INFOFILE}
-	printf "displaymodel=${MACHINE_NAME}\n" >> ${D}${INFOFILE}
-	printf "displaytype=${DISPLAY_TYPE}\n" >> ${D}${INFOFILE}
-	printf "distro=${DISTRO_NAME}\n" >> ${D}${INFOFILE}
+	printf "developername='${DEVELOPER_NAME}'\n" >> ${D}${INFOFILE}
+	printf "displaybrand='${MACHINE_BRAND}'\n" >> ${D}${INFOFILE}
+	printf "displaydistro='OpenPLi'\n" >> ${D}${INFOFILE}
+	printf "displaymodel='${MACHINE_NAME}'\n" >> ${D}${INFOFILE}
+	printf "displaytype='${DISPLAY_TYPE}'\n" >> ${D}${INFOFILE}
+	printf "distro='${DISTRO_NAME}'\n" >> ${D}${INFOFILE}
 	printf "driversdate='${DRIVERSDATE}'\n" >> ${D}${INFOFILE}
 	printf "dvi=${HAVE_DVI}\n" >> ${D}${INFOFILE}
-	printf "feedsurl=${DISTRO_FEED_URI}\n" >> ${D}${INFOFILE}
+	printf "feedsurl='${DISTRO_FEED_URI}'\n" >> ${D}${INFOFILE}
 	printf "fhdskin=${HAVE_FHDSKIN}\n" >> ${D}${INFOFILE}
 	printf "forcemode=${FORCE}\n" >> ${D}${INFOFILE}
-	printf "fpu=${TARGET_FPU}\n" >> ${D}${INFOFILE}
-	printf "friendlyfamily=${FRIENDLY_FAMILY}\n" >> ${D}${INFOFILE}
+	printf "fpu='${TARGET_FPU}'\n" >> ${D}${INFOFILE}
+	printf "friendlyfamily='${FRIENDLY_FAMILY}'\n" >> ${D}${INFOFILE}
 	printf "hdmi=${HAVE_HDMI}\n" >> ${D}${INFOFILE}
 	printf "hdmifhdin=${HAVE_HDMI_IN_FHD}\n" >> ${D}${INFOFILE}
 	printf "hdmihdin=${HAVE_HDMI_IN_HD}\n" >> ${D}${INFOFILE}
 	printf "hdmistandbymode=${HDMISTANDBY_MODE}\n" >> ${D}${INFOFILE}
 	printf "imagebuild='${OE_REVISION}'\n" >> ${D}${INFOFILE}
-	printf "imagedevbuild='${OE_HASH}'\n" >> ${D}${INFOFILE}
-	printf "imagedir=${IMAGEDIR}\n" >> ${D}${INFOFILE}
-	printf "imagefs=${IMAGE_FSTYPES}\n" >> ${D}${INFOFILE}
-	printf "imagetype=${DISTRO_TYPE}\n" >> ${D}${INFOFILE}
+	printf "imagedevbuild=''\n" >> ${D}${INFOFILE}
+	printf "imagedir='${IMAGEDIR}'\n" >> ${D}${INFOFILE}
+	printf "imagefs='${IMAGE_FSTYPES}'\n" >> ${D}${INFOFILE}
+	printf "imagetype='${IMAGE_TYPE}'\n" >> ${D}${INFOFILE}
 	printf "imageversion='${IMAGE_VERSION}'\n" >> ${D}${INFOFILE}
 	printf "imglanguage=multilang\n" >> ${D}${INFOFILE}
 	printf "imgrevision='${OE_REVISION}'\n" >> ${D}${INFOFILE}
 	printf "imgversion='${IMAGE_VERSION}'\n" >> ${D}${INFOFILE}
 	printf "kernel='${KERNEL_VERSION}'\n" >> ${D}${INFOFILE}
 	printf "kexecmb=${HAVE_KEXECMB}\n" >> ${D}${INFOFILE}
-	printf "kernelfile=${KERNEL_FILE}\n" >> ${D}${INFOFILE}
-	printf "machine=${MACHINE}\n" >> ${D}${INFOFILE}
-	printf "machinebuild=${MACHINEBUILD}\n" >> ${D}${INFOFILE}
-	printf "mediaservice=${MEDIASERVICE}\n" >> ${D}${INFOFILE}
+	printf "kernelfile='${KERNEL_FILE}'\n" >> ${D}${INFOFILE}
+	printf "machine='${MACHINE}'\n" >> ${D}${INFOFILE}
+	printf "machinebuild='${MACHINEBUILD}'\n" >> ${D}${INFOFILE}
+	printf "mediaservice='${MEDIASERVICE}'\n" >> ${D}${INFOFILE}
 	printf "middleflash=${HAVE_MIDDLEFLASH}\n" >> ${D}${INFOFILE}
 	printf "mkubifs=${MKUBIFS_ARGS}\n" >> ${D}${INFOFILE}
 	printf "model=${MACHINE_MODEL}\n" >> ${D}${INFOFILE}
-	printf "mtdbootfs=${MTD_BOOTFS}\n" >> ${D}${INFOFILE}
-	printf "mtdkernel=${MTD_KERNEL}\n" >> ${D}${INFOFILE}
-	printf "mtdrootfs=${MTD_ROOTFS}\n" >> ${D}${INFOFILE}
+	printf "mtdbootfs='${MTD_BOOTFS}'\n" >> ${D}${INFOFILE}
+	printf "mtdkernel='${MTD_KERNEL}'\n" >> ${D}${INFOFILE}
+	printf "mtdrootfs='${MTD_ROOTFS}'\n" >> ${D}${INFOFILE}
 	printf "multilib=False\n" >> ${D}${INFOFILE}
 	printf "multitranscoding=${HAVE_MULTITRANSCODING}\n" >> ${D}${INFOFILE}
-	printf "oe=${OE_NAME} (${OE_VERSION})\n" >> ${D}${INFOFILE}
-	printf "platform=${STB_PLATFORM}\n" >> ${D}${INFOFILE}
+	printf "oe='${OE_NAME} (${OE_VERSION})'\n" >> ${D}${INFOFILE}
+	printf "platform='${STB_PLATFORM}'\n" >> ${D}${INFOFILE}
 	printf "python='${PYTHON_FULLVERSION}'\n" >> ${D}${INFOFILE}
 	printf "rca=${HAVE_RCA}\n" >> ${D}${INFOFILE}
 	printf "rcidnum=${RCIDNUM}\n" >> ${D}${INFOFILE}
-	printf "rcname=${RCNAME}\n" >> ${D}${INFOFILE}
+	printf "rcname='${RCNAME}'\n" >> ${D}${INFOFILE}
 	printf "rctype=${RCTYPE}\n" >> ${D}${INFOFILE}
-	printf "rootfile=${ROOTFS_FILE}\n" >> ${D}${INFOFILE}
+	printf "rootfile='${ROOTFS_FILE}'\n" >> ${D}${INFOFILE}
 	printf "scart=${HAVE_SCART}\n" >> ${D}${INFOFILE}
 	printf "noscartswitch=${NO_SCART_SWITCH}\n" >> ${D}${INFOFILE}
 	printf "scartyuv=${HAVE_SCART_YUV}\n" >> ${D}${INFOFILE}
@@ -322,10 +325,11 @@ do_install() {
 	printf "svideo=${HAVE_SVIDEO}\n" >> ${D}${INFOFILE}
 	printf "timerwakeupmode=${TIMERWAKEUP_MODE}\n" >> ${D}${INFOFILE}
 	printf "transcoding=${HAVE_TRANSCODING}\n" >> ${D}${INFOFILE}
-	printf "ubinize=${UBINIZE_ARGS}\n" >> ${D}${INFOFILE}
+	printf "ubinize='${UBINIZE_ARGS}'\n" >> ${D}${INFOFILE}
 	printf "vfdsymbol=${HAVE_VFDSYMBOL}\n" >> ${D}${INFOFILE}
 	printf "wol=${HAVE_WOL}\n" >> ${D}${INFOFILE}
 	printf "wwol=${HAVE_WWOL}\n" >> ${D}${INFOFILE}
+	printf "yocto='${OE_VERSION}'\n" >> ${D}${INFOFILE}
 	printf "yuv=${HAVE_YUV}\n" >> ${D}${INFOFILE}
 	printf "checksum=%s\n" $(md5sum "${D}${INFOFILE}" | awk '{print $1}') >> ${D}${INFOFILE}
 }
@@ -510,8 +514,8 @@ elif [ "$MACHINE" = "h9combose" ]; then
 # runtime fixes for the Octagon SF8008
 elif [ "$MACHINE" = "sf8008" ]; then
 	if startswith "11" $type; then
-		updateinfo "machinebrand" "sf8008t"
 		updateinfo "displaymodel" "SF8008 4K Twin"
+		updateinfo "machinebuild" "sf8008t"
 	elif startswith "12" $type; then
 		if [ -f $WIFI2 ]; then
 			value=$(head -n 1 $WIFI2)
@@ -519,22 +523,22 @@ elif [ "$MACHINE" = "sf8008" ]; then
 			value=""
 		fi
 		if [ "$value" = "c82c" ]; then
-			updateinfo "machinebrand" "sf8008"
 			updateinfo "displaymodel" "SF8008 4K Supreme"
+			updateinfo "machinebuild" "sf8008"
 		else
-			updateinfo "machinebrand" "sf8008c"
 			updateinfo "displaymodel" "SF8008 4K Combo"
+			updateinfo "machinebuild" "sf8008c"
 		fi
 	else  # startswith "10"
-		updateinfo "machinebrand" "sf8008s"
 		updateinfo "displaymodel" "SF8008 4K Single"
+		updateinfo "machinebuild" "sf8008s"
 	fi
 
 # runtime fixes for the Octagon SFX6008
 elif [ "$MACHINE" = "sfx6008" ]; then
 	if startswith "10" $type; then
-		updateinfo "machinebrand" "sfx6018"
 		updateinfo "displaymodel" "SFX6018 S2 IP"
+		updateinfo "machinebuild" "sfx6018"
 	else # startswith "11"
 		if [ -f $WIFI1 ]; then
 			value=$(head -n 1 $WIFI1)
@@ -542,11 +546,11 @@ elif [ "$MACHINE" = "sfx6008" ]; then
 			value=""
 		fi
 		if [ "$value" = "f179" ]; then
-			updateinfo "machinebrand" "sfx6008wl"
 			updateinfo "displaymodel" "SFX6008 WL"
+			updateinfo "machinebuild" "sfx6008wl"
 		else
-			updateinfo "machinebrand" "sfx6008"
 			updateinfo "displaymodel" "SFX6008 IP"
+			updateinfo "machinebuild" "sfx6008"
 		fi
 	fi
 
@@ -558,11 +562,11 @@ elif [ "$MACHINE" = "ustym4kpro" ]; then
 		value=""
 	fi
 	if [ "$value" = "c82c" ]; then
-		updateinfo "machinebrand" "ustym4kpro"
 		updateinfo "displaymodel" "Ustym 4K PRO Ultimate"
+		updateinfo "machinebuild" "ustym4kpro"
 	elif startswith "11" $type; then
-		updateinfo "machinebrand" "ustym4ktwin"
 		updateinfo "displaymodel" "Ustym 4K Twin"
+		updateinfo "machinebuild" "ustym4ktwin"
 	fi
 fi
 
