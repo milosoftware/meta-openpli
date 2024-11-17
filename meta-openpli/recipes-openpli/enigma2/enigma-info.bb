@@ -102,14 +102,6 @@ do_install() {
 		PYTHON_FULLVERSION=${PYTHON_BASEVERSION}
 	fi
 
-#	Image version
-
-	IMAGE_VERSION=`echo ${DISTRO_VERSION} | cut -d "-" -f 1`
-	IMAGE_TYPE=$DISTRO_TYPE
-	if [ "$IMAGE_TYPE" == "$IMAGE_VERSION" ]; then
-		IMAGE_TYPE=
-	fi
-
 #	Kernel version
 
 	KERNEL_VERSION="${@get_kernelversion_headers('${STAGING_KERNEL_DIR}') or oe.utils.read_file('${PKGDATA_DIR}/kernel-depmod/kernel-abiversion')}"
@@ -119,9 +111,16 @@ do_install() {
 	OE_NAME=`cd ${OPENPLI_BASE} && git submodule | grep "meta-openembedded" | cut -d '(' -f 2 | cut -d ')' -f 1 | cut -d '/' -f 3`
 	OE_VERSION=`cd "${OPENPLI_BASE}/openembedded-core" && git describe --match=yocto* | cut -d '-' -f 2`
 
-#	OE revision info
+#	Image type, version, revision
 
-	OE_REVISION=`cd ${OPENPLI_BASE} && git rev-list --count HEAD`
+	IMAGE_VERSION=`echo ${DISTRO_VERSION} | cut -d "-" -f 1`
+	IMAGE_TYPE=$DISTRO_TYPE
+	if [ "$IMAGE_TYPE" == "$IMAGE_VERSION" ]; then
+		IMAGE_TYPE='rev'
+		OE_REVISION=`cd ${OPENPLI_BASE} && git rev-list --count HEAD`
+	else
+		OE_REVISION=
+	fi
 
 #	OE-A compatible machine names
 
