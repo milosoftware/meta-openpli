@@ -114,13 +114,13 @@ do_install() {
 #	Image type, version, revision
 
 	IMAGE_VERSION=`echo ${DISTRO_VERSION} | cut -d "-" -f 1`
-	if [ "$IMAGE_VERSION" == "$DISTRO_VERSION" ]; then
+	if [ "$IMAGE_VERSION" = "$DISTRO_VERSION" ]; then
 		IMAGE_VERSION=
 		IMAGE_TYPE='rev'
 		OE_REVISION=`cd ${OPENPLI_BASE} && git rev-list --count HEAD`
 	else
 		OE_REVISION=
-		IMAGE_TYPE=
+		IMAGE_TYPE=`echo ${DISTRO_VERSION} | cut -d "-" -f 2`
 	fi
 
 #	OE-A compatible machine names
