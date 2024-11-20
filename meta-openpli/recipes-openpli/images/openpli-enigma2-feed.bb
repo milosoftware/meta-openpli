@@ -110,7 +110,7 @@ OPTIONAL_PACKAGES += " \
 	net-snmp \
 	net-tools \
 	\
-	${@"" and bb.utils.contains('TARGET_FPU', 'soft', '', 'nodejs', d)} \
+	${@bb.utils.contains('TARGET_ARCH', 'mipsel', '', 'nodejs', d)} \
 	\
 	phodav \
 	ntfs-3g \
