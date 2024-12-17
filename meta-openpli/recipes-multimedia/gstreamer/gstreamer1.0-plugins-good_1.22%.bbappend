@@ -1,8 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-PV = "1.24.6"
+PV = "1.24.10"
 
-SRC_URI[sha256sum] = "996b9c8d1d246ed43be304718b6086e5a17d4ae8114d1920aed9ea75b920ba2d"
+SRC_URI[sha256sum] = "fce748fa66d7a8ee1fb261489e59d01e3fa787623d6d5c35068416fe7cd0acb3"
 
 DEPENDS:append = " libsoup-2.4"
 RDEPENDS:${PN}-soup += "libsoup-2.4"
