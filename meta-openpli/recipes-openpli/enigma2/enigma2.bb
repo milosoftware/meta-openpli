@@ -63,9 +63,6 @@ PYTHON_RDEPS = " \
     python3-urllib3 \
     python3-xml \
     python3-zopeinterface \
-    python3-pillow \
-    python3-six \
-    python3-treq \
 "
 
 # DVD and iso playback is integrated, we need the libraries
