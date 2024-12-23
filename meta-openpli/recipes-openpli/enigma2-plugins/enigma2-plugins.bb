@@ -70,18 +70,12 @@ S = "${WORKDIR}/git"
 DEPENDS = " \
 	python3-pyopenssl \
 	streamripper \
-	python3-icalendar \
-	python3-dateutil \
 	python3-mutagen \
-	python3-pyusb \
 	python3-requests \
-	python3-simplejson \
-	python3-six-native \
+	python3-six \
 	python3-treq \
 	python3-twisted \
-	python3-daap \
 	libcddb \
-	pydpflib \
 	dvdbackup \
 	"
 
