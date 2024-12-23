@@ -163,6 +163,10 @@ if [ -s /tmp/fstab ]; then
 	mount -a
 fi
 
+# deal with restoring a backup from 9.1-release or newer
+sed -i 's/=True/=true/g' /etc/enigma2/settings
+sed -i 's/=False/=false/g' /etc/enigma2/settings
+
 # restore the crontab if present
 [ -s /tmp/crontab ] && crontab /tmp/crontab
 
