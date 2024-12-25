@@ -12,7 +12,7 @@ DEPENDS = "enigma2-plugin-softcams-oscam"
 
 inherit allarch
 
-PV[vardepsexclude]="DATE"
+PR[vardepsexclude]="DATE"
 
 do_install () {
     install -d ${D}${sysconfdir}/enigma2/
