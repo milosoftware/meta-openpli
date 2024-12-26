@@ -26,6 +26,7 @@ RDEPENDS_${PN} = " \
 	enigma2-fonts \
 	enigma-info \	
 	ethtool \
+	enigma-info \
 	${PYTHON_RDEPS} \
 	"
 
