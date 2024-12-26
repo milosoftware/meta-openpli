@@ -344,6 +344,13 @@ do_deploy() {
 
 addtask deploy before do_package after do_install
 
+pkg_preinst_${PN} () {
+#!/bin/sh
+set -e
+
+rm -f /usr/lib/enigma.info
+}
+
 pkg_postinst_ontarget_${PN} () {
 #!/bin/sh
 set -e

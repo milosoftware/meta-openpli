@@ -186,7 +186,15 @@ FILES_${PN}-src += "\
 	"
 
 do_install_append() {
-	install -d ${D}${datadir}/keymaps
+}
+
+INFOFILE = "${libdir}/enigma.info"
+
+pkg_postinst_ontarget_${PN} () {
+	# dummy to keep opkg happy
+	if [ "$(wc -l /usr/lib/enigma.info)" -lt 10 ]; then
+		touch ${INFOFILE}
+	fi
 }
 
 python populate_packages_prepend() {
