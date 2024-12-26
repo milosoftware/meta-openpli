@@ -192,8 +192,20 @@ install -d ${D}${datadir}/keymaps
 
 # dummy to keep opkg happy
 install -d ${D}${libdir}
-if [ -f ${INFOFILE} ]; then
-	touch ${INFOFILE}
+printf "dummy" > ${D}${INFOFILE}
+}
+
+pkg_preinst_${PN}() {
+#/bin/sh
+if [ -f /usr/lib/enigma.info ]; then
+	cp /usr/lib/enigma.info /tmp
+fi
+}
+
+pkg_postinst_${PN}() {
+#/bin/sh
+if [ -f /tmp/enigma.info ]; then
+	cp /tmp/enigma.info /usr/lib
 fi
 }
 
