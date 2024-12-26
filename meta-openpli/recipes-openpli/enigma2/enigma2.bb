@@ -185,16 +185,16 @@ FILES_${PN}-src += "\
 	${libdir}/enigma2/python/*/*/*/*.py \
 	"
 
-do_install_append() {
-}
-
 INFOFILE = "${libdir}/enigma.info"
 
-pkg_postinst_ontarget_${PN} () {
-	# dummy to keep opkg happy
-	if [ "$(wc -l /usr/lib/enigma.info)" -lt 10 ]; then
-		touch ${INFOFILE}
-	fi
+do_install_append() {
+install -d ${D}${datadir}/keymaps
+
+# dummy to keep opkg happy
+install -d ${D}${libdir}
+if [ -f ${INFOFILE} ]; then
+	touch ${INFOFILE}
+fi
 }
 
 python populate_packages_prepend() {
