@@ -185,16 +185,11 @@ FILES_${PN}-src += "\
 	${libdir}/enigma2/python/*/*/*/*.py \
 	"
 
-INFOFILE = "${libdir}/enigma.info"
-
 do_install_append() {
 install -d ${D}${datadir}/keymaps
-
-# dummy to keep opkg happy
-install -d ${D}${libdir}
-printf "dummy" > ${D}${INFOFILE}
 }
 
+# fix delete of enigma.info when updating from 9.0-release
 pkg_preinst_${PN}() {
 #/bin/sh
 if [ -f /usr/lib/enigma.info ]; then
