@@ -115,10 +115,10 @@ PV = "${PYTHON_BASEVERSION}+git"
 PKGV = "${PYTHON_BASEVERSION}+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "scarthgap"
-GITHUB_URI ?= "git://github.com"
 
 # make the origin overridable from OE config, for local mirroring
-SRC_URI = "${GITHUB_URI}/OpenPLi/enigma2.git;branch=${ENIGMA2_BRANCH};protocol=https"
+SRC_ORIGIN ?= "git://github.com/OpenPLi/enigma2.git;protocol=https"
+SRC_URI := " ${SRC_ORIGIN};branch=${ENIGMA2_BRANCH}"
 
 LDFLAGS:prepend = " -lxml2 "
 
