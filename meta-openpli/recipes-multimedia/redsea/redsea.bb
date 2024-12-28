@@ -9,9 +9,7 @@ inherit gittag
 PV = "git"
 PKGV = "${GITPKGVTAG}"
 
-SRC_URI = "git://github.com/windytan/redsea.git;protocol=https;branch=master \
-           file://fix-include-header-file.patch \
-"
+SRC_URI = "git://github.com/windytan/redsea.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 
