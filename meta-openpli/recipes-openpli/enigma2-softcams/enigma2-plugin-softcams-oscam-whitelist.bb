@@ -13,11 +13,12 @@ DEPENDS = "enigma2-plugin-softcams-oscam"
 inherit allarch
 
 PV[vardepsexclude]="DATE"
+PV[vardepvalue] = ""
 
 do_install () {
-    install -d ${D}${sysconfdir}/enigma2/
-	        if [ -e ${S}/whitelist_streamrelay ]; then
+	install -d ${D}${sysconfdir}/enigma2/
+	if [ -e ${S}/whitelist_streamrelay ]; then
 		rm -f ${S}/whitelist_streamrelay
 	fi
-   cp -r ${WORKDIR}/whitelist_streamrelay ${D}${sysconfdir}/enigma2
+	cp -r ${WORKDIR}/whitelist_streamrelay ${D}${sysconfdir}/enigma2
 }
