@@ -579,7 +579,8 @@ fi
 # re-add the checksum
 MD5SUM=`md5sum $TMPFILE | cut -d ' ' -f 1`
 echo "checksum=$MD5SUM" >> $TMPFILE
-mv $TMPFILE $INFOFILE
+cp -f $TMPFILE $INFOFILE
+mv -f $TMPFILE /tmp/enigma.info
 
 exit 0
 }
