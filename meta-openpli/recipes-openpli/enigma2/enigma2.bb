@@ -200,7 +200,9 @@ fi
 pkg_postinst_${PN}() {
 #/bin/sh
 if [ -f /tmp/enigma.info ]; then
-	cp /tmp/enigma.info /usr/lib
+	if [ `wc -l < /tmp/enigma.info` -gt 30 ]; then
+		cp /tmp/enigma.info /usr/lib
+	fi
 fi
 }
 
