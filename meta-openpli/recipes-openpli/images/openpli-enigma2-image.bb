@@ -158,4 +158,6 @@ ssh_allow_empty_password () {
 license_create_manifest() {
 }
 
+ROOTFS_POSTPROCESS_COMMAND += "removeopkgleftovers; "
+
 export IMAGE_BASENAME = "openpli-enigma2"
