@@ -90,10 +90,10 @@ IMAGE_INSTALL += " \
 	openresolv \
 	openssh-sftp-server \
 	opkg \
-	perl \
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
+	perl \
 	python3-ipaddress  \
 	python3-netifaces \
 	python3-pysmb \
