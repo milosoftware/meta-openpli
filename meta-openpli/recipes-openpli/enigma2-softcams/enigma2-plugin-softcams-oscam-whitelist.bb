@@ -2,23 +2,22 @@ DESCRIPTION = "OsCam iCam whitelist"
 MAINTAINER = "AbuBaniaz"
 LICENSE = "CLOSED"
 
-PV = "1.0+${DATE}"
+PV = "2.0+git${SRCPV}"
+PKGV = "2.0+git${GITPKGV}"
 
-SRC_URI = "https://raw.githubusercontent.com/biko-73/OsCam_EMU/refs/heads/main/whitelist_streamrelay"
+SRC_ORIGIN ?= "git://github.com/E2OpenPlugins/oscam-whitelist.git;protocol=https;branch=main"
+SRC_URI := "${SRC_ORIGIN} "
 
-BB_STRICT_CHECKSUM = "0"
+S = "${WORKDIR}/git"
 
 DEPENDS = "enigma2-plugin-softcams-oscam"
 
 inherit allarch
 
-PV[vardepsexclude]="DATE"
-PV[vardepvalue] = ""
-
 do_install () {
 	install -d ${D}${sysconfdir}/enigma2/
-	if [ -e ${S}/whitelist_streamrelay ]; then
-		rm -f ${S}/whitelist_streamrelay
+	if [ -f ${D}${sysconfdir}/enigma2/whitelist_streamrelay ]; then
+		rm -f ${D}${sysconfdir}/enigma2/whitelist_streamrelay
 	fi
-	cp -r ${WORKDIR}/whitelist_streamrelay ${D}${sysconfdir}/enigma2
+	cp -r ${S}/whitelist_streamrelay ${D}${sysconfdir}/enigma2
 }
