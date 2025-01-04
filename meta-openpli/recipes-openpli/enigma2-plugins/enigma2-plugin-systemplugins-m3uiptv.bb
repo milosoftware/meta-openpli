@@ -21,5 +21,15 @@ pluginpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/M3UIPTV"
 
 do_install() {
 	install -d ${D}${pluginpath}
-	cp -r ${S}/src/* ${D}${pluginpath}/
+	cp -r ${S}/src/* ${D}${pluginpath}/	if [ -f /usr/bin/msgfmt ] ; then
+		find ${S}/po/ -maxdepth 1 -type f -name '*.po' | while read po ; do
+			## remove everything before and including the "/"
+			filename=${po##*/}
+			## remove everything after and including the "."
+			cc=${filename%%.*}
+			folder=${D}${pluginpath}/locale/${cc}/LC_MESSAGES
+			mkdir -p ${folder}
+			/usr/bin/msgfmt -o ${folder}/m3uiptv.mo ${po}
+		done
+	fi
 }
