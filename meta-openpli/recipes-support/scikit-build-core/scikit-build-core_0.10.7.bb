@@ -9,7 +9,9 @@ DEPENDS = "python3-hatch-vcs-native"
 
 SRCREV = "${AUTOREV}"
 
-SRC_URI = "git://github.com/scikit-build/scikit-build-core.git;branch=main;protocol=https"
+SRC_URI = "git://github.com/scikit-build/scikit-build-core.git;branch=main;protocol=https \
+           file://add-more-meta-data-to-dictionary.patch \
+"
 
 S = "${WORKDIR}/git"
 

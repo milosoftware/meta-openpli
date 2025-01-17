@@ -1,0 +1,29 @@
+diff --git a/src/scikit_build_core/_vendor/pyproject_metadata/constants.py b/src/scikit_build_core/_vendor/pyproject_metadata/constants.py
+index afe4281..810b8e0 100644
+--- a/src/scikit_build_core/_vendor/pyproject_metadata/constants.py
++++ b/src/scikit_build_core/_vendor/pyproject_metadata/constants.py
+@@ -29,12 +29,16 @@ PRE_SPDX_METADATA_VERSIONS = {"2.1", "2.2", "2.3"}
+ 
+ PROJECT_TO_METADATA = {
+     "authors": frozenset(["Author", "Author-Email"]),
++    "Changelog" : frozenset(["Changelog"]),
+     "classifiers": frozenset(["Classifier"]),
+     "dependencies": frozenset(["Requires-Dist"]),
+     "description": frozenset(["Summary"]),
++    "Documentation": frozenset(["Documentation"]),
+     "dynamic": frozenset(),
+     "entry-points": frozenset(),
+     "gui-scripts": frozenset(),
++    "Homepage" : frozenset(["Homepage"]),
++    "Issues" : frozenset(["Issues"]),
+     "keywords": frozenset(["Keywords"]),
+     "license": frozenset(["License", "License-Expression"]),
+     "license-files": frozenset(["License-File"]),
+@@ -42,6 +46,7 @@ PROJECT_TO_METADATA = {
+     "name": frozenset(["Name"]),
+     "optional-dependencies": frozenset(["Provides-Extra", "Requires-Dist"]),
+     "readme": frozenset(["Description", "Description-Content-Type"]),
++    "Repository" : frozenset(["Repository"]),
+     "requires-python": frozenset(["Requires-Python"]),
+     "scripts": frozenset(),
+     "urls": frozenset(["Project-URL"]),
