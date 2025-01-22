@@ -12,8 +12,9 @@ inherit gitpkgv
 PV = "68+gitr"
 PKGV = "68+gitr${GITPKGV}"
 
-SRC_URI = "git://github.com/technic/exteplayer3.git;protocol=https;branch=master \
-        file://fix-build-errors-with-ffmpeg-5.patch"
+SRC_URI = "git://github.com/oe-mirrors/exteplayer3.git;branch=master;protocol=https \
+           file://fix-build-errors-with-ffmpeg-5.patch"
+
 S = "${WORKDIR}/git"
 
 
