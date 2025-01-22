@@ -9,10 +9,10 @@ RDEPENDS_${PN} = "ffmpeg libbluray"
 
 inherit gitpkgv
 
-PV = "68+gitr${SRCPV}"
-PKGV = "68+gitr${GITPKGV}"
+PV = "69+gitr${SRCPV}"
+PKGV = "69+gitr${GITPKGV}"
 
-SRC_URI = "git://github.com/technic/exteplayer3.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/oe-mirrors/exteplayer3.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 
