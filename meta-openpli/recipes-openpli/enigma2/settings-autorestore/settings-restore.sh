@@ -6,7 +6,8 @@
 function restartNetwork 
 {
 	# stop network services
-	/etc/init.d/avahi-daemon stop
+	[ -f /etc/init.d/ntpd ] && /etc/init.d/ntpd stop
+	[ -f /etc/init.d/avahi-daemon ] && /etc/init.d/avahi-daemon stop
 	/etc/init.d/networking stop
 	killall -9 udhcpc
 	rm /var/run/udhcpc*
@@ -23,7 +24,7 @@ function restartNetwork
 	# restart the services
 	/etc/init.d/dbus-1 reload
 	/etc/init.d/networking start
-	/etc/init.d/avahi-daemon start
+	[ -f /etc/init.d/avahi-daemon ] && /etc/init.d/avahi-daemon start
 
 	# wait until we have a network again
 	echo "**** Waiting for network ****"
@@ -35,6 +36,8 @@ function restartNetwork
 		fi
 		sleep 1
 	done
+
+	[ -f /etc/init.d/ntpd ] && /etc/init.d/ntpd start
 }
 
 # ---[ main ]---------------------------------------
