@@ -479,6 +479,7 @@ elif [ "$MACHINE" = "h9combo" ]; then
 	if [ "$model" = "h9twin"  -o  "$model" = "h9 twin"  ]; then
 		updateinfo "displaymodel" "H9 TWIN"
 		updateinfo "machinebuild" "zgemmah9twin"
+		updateinfo "machine" "h9twin"
 	elif [ "$model" = "h9combo" ]; then
 		updateinfo "displaymodel" "H9 COMBO"
 		updateinfo "machinebuild" "zgemmah9combo"
@@ -505,6 +506,7 @@ elif [ "$MACHINE" = "h9combose" ]; then
 	if [ "$model" = "h9twinse" ]; then
 		updateinfo "displaymodel" "H9 TWIN SE"
 		updateinfo "machinebuild" "zgemmah9twinse"
+		updateinfo "machine" "h9twinse"
 	elif [ "$model" = "h9combose" ]; then
 		updateinfo "displaymodel" "H9 COMBO SE"
 		updateinfo "machinebuild" "zgemmah9combose"
@@ -551,6 +553,33 @@ elif [ "$MACHINE" = "sfx6008" ]; then
 			updateinfo "displaymodel" "SFX6008 IP"
 			updateinfo "machinebuild" "sfx6008"
 		fi
+	fi
+
+# runtime fixes for the Xtrend
+elif [ "$MACHINE" = "et4x00" ]; then
+	updateinfo "machine" "et4000"
+elif [ "$MACHINE" = "et5x00" ]; then
+	updateinfo "machine" "et5000"
+elif [ "$MACHINE" = "et6x00" ]; then
+	if [ "$model" = "et6000" ]; then
+		updateinfo "machine" "et6000"
+	elif [ "$model" = "et6500" ]; then
+		updateinfo "machine" "et6500"
+	fi
+elif [ "$MACHINE" = "et7x00" ]; then
+	if [ "$model" = "et7000" ]; then
+		updateinfo "machine" "et7000"
+	elif [ "$model" = "et7500" ]; then
+		updateinfo "machine" "et7500"
+	fi
+elif [ "$MACHINE" = "et9x00" ]; then
+	if [ "$model" = "et9000" ]; then
+		updateinfo "machine" "et9000"
+	elif [ "$model" = "et9200" ]; then
+		updateinfo "machine" "et9200"
+	fi
+	elif [ "$model" = "et9500" ]; then
+		updateinfo "machine" "et9500"
 	fi
 
 # runtime fixes for the Uclan Ustym 4K Pro
