@@ -302,7 +302,7 @@ do_install() {
 	printf "mediaservice='${MEDIASERVICE}'\n" >> ${D}${INFOFILE}
 	printf "middleflash=${HAVE_MIDDLEFLASH}\n" >> ${D}${INFOFILE}
 	printf "mkubifs=${MKUBIFS_ARGS}\n" >> ${D}${INFOFILE}
-	printf "model=${MACHINE_MODEL}\n" >> ${D}${INFOFILE}
+	printf "model='${MACHINE_MODEL}'\n" >> ${D}${INFOFILE}
 	printf "mtdbootfs='${MTD_BOOTFS}'\n" >> ${D}${INFOFILE}
 	printf "mtdkernel='${MTD_KERNEL}'\n" >> ${D}${INFOFILE}
 	printf "mtdrootfs='${MTD_ROOTFS}'\n" >> ${D}${INFOFILE}
@@ -479,6 +479,7 @@ elif [ "$MACHINE" = "h9combo" ]; then
 	if [ "$model" = "h9twin"  -o  "$model" = "h9 twin"  ]; then
 		updateinfo "displaymodel" "H9 TWIN"
 		updateinfo "machinebuild" "zgemmah9twin"
+		updateinfo "model" "h9twin"
 	elif [ "$model" = "h9combo" ]; then
 		updateinfo "displaymodel" "H9 COMBO"
 		updateinfo "machinebuild" "zgemmah9combo"
@@ -505,6 +506,7 @@ elif [ "$MACHINE" = "h9combose" ]; then
 	if [ "$model" = "h9twinse" ]; then
 		updateinfo "displaymodel" "H9 TWIN SE"
 		updateinfo "machinebuild" "zgemmah9twinse"
+		updateinfo "model" "h9twinse"
 	elif [ "$model" = "h9combose" ]; then
 		updateinfo "displaymodel" "H9 COMBO SE"
 		updateinfo "machinebuild" "zgemmah9combose"
@@ -551,6 +553,33 @@ elif [ "$MACHINE" = "sfx6008" ]; then
 			updateinfo "displaymodel" "SFX6008 IP"
 			updateinfo "machinebuild" "sfx6008"
 		fi
+	fi
+
+# runtime fixes for the Xtrend
+elif [ "$MACHINE" = "et4x00" ]; then
+	updateinfo "model" "et4000"
+elif [ "$MACHINE" = "et5x00" ]; then
+	updateinfo "model" "et5000"
+elif [ "$MACHINE" = "et6x00" ]; then
+	if [ "$model" = "et6000" ]; then
+		updateinfo "model" "et6000"
+	elif [ "$model" = "et6500" ]; then
+		updateinfo "model" "et6500"
+	fi
+elif [ "$MACHINE" = "et7x00" ]; then
+	if [ "$model" = "et7000" ]; then
+		updateinfo "model" "et7000"
+	elif [ "$model" = "et7500" ]; then
+		updateinfo "model" "et7500"
+	fi
+elif [ "$MACHINE" = "et9x00" ]; then
+	if [ "$model" = "et9000" ]; then
+		updateinfo "model" "et9000"
+	elif [ "$model" = "et9200" ]; then
+		updateinfo "model" "et9200"
+	fi
+	elif [ "$model" = "et9500" ]; then
+		updateinfo "model" "et9500"
 	fi
 
 # runtime fixes for the Uclan Ustym 4K Pro
