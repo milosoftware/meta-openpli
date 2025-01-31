@@ -4,7 +4,7 @@
 # Provides:        ntp
 # Required-Start:  $network $remote_fs $syslog
 # Required-Stop:   $network $remote_fs $syslog
-# Default-Start:   2 3 4 5
+# Default-Start:
 # Default-Stop:
 # Short-Description: Start NTP daemon
 ### END INIT INFO
