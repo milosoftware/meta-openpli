@@ -14,3 +14,6 @@ do_install:append() {
     install -d ${D}${sysconfdir}/network/if-up.d
     install -m 755 ${WORKDIR}/startntpd ${D}${sysconfdir}/network/if-up.d
 }
+
+# do not add start, only stop links
+INITSCRIPT_PARAMS = "stop 20 0 1 6 ."
