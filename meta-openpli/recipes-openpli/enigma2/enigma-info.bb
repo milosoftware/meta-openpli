@@ -299,7 +299,6 @@ do_install() {
 	printf "kernelfile='${KERNEL_FILE}'\n" >> ${D}${INFOFILE}
 	printf "machine='${MACHINE}'\n" >> ${D}${INFOFILE}
 	printf "model='${MACHINE}'\n" >> ${D}${INFOFILE}
-	printf "machinemodel='${MACHINE_MODEL}'\n" >> ${D}${INFOFILE}
 	printf "machinebuild='${MACHINEBUILD}'\n" >> ${D}${INFOFILE}
 	printf "mediaservice='${MEDIASERVICE}'\n" >> ${D}${INFOFILE}
 	printf "middleflash=${HAVE_MIDDLEFLASH}\n" >> ${D}${INFOFILE}
