@@ -9,3 +9,7 @@ do_install:append() {
 	rm ${D}${sysconfdir}/vsftpd.ftpusers
 	rm ${D}${sysconfdir}/vsftpd.user_list
 }
+
+pkg_postinst_ontarget:${PN} () {
+	chown root /etc/vsftpd.conf
+}
