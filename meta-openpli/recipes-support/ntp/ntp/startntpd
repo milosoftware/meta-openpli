@@ -1,8 +1,10 @@
 #!/bin/sh
 
-/etc/init.d/ntpd status
-if [ $? -eq 0 ]; then
-    /etc/init.d/ntpd stop
-fi
+if [ "$IFACE" != "lo" ]; then
+	/etc/init.d/ntpd status
+	if [ $? -eq 0 ]; then
+		/etc/init.d/ntpd stop
+	fi
 
-/etc/init.d/ntpd start
+	/etc/init.d/ntpd start
+fi
