@@ -596,7 +596,7 @@ elif [ "$MACHINE" = "et9x00" ]; then
 		updateinfo "displaymodel" "ET9100"
 		updateinfo "model" "et9100"
 	elif [ "$model" = "et9200" ]; then
-		updateinfo "displaymodel" "ET9100"
+		updateinfo "displaymodel" "ET9200"
 		updateinfo "model" "et9200"
 	elif [ "$model" = "et9500" ]; then
 		updateinfo "displaymodel" "ET9500"
