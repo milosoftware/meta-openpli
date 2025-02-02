@@ -598,7 +598,6 @@ elif [ "$MACHINE" = "et9x00" ]; then
 	elif [ "$model" = "et9200" ]; then
 		updateinfo "displaymodel" "ET9100"
 		updateinfo "model" "et9200"
-	fi
 	elif [ "$model" = "et9500" ]; then
 		updateinfo "displaymodel" "ET9500"
 		updateinfo "model" "et9500"
