@@ -360,6 +360,7 @@ PROC_MODEL=/proc/stb/info/model
 PROC_HWMODEL=/proc/stb/info/hwmodel
 PROC_BOXTYPE=/proc/stb/info/boxtype
 PROC_TYPE=/proc/stb/info/type
+CHIPSET=proc/stb/info/chipset
 WIFI1=/sys/devices/platform/soc/f9890000.ehci/usb1/1-1/idProduct
 WIFI2=/sys/devices/platform/soc/f9890000.ehci/usb1/1-2/idProduct
 
@@ -557,28 +558,48 @@ elif [ "$MACHINE" = "sfx6008" ]; then
 
 # runtime fixes for the Xtrend
 elif [ "$MACHINE" = "et4x00" ]; then
+	updateinfo "displaymodel" "ET4000"
 	updateinfo "model" "et4000"
 elif [ "$MACHINE" = "et5x00" ]; then
+	updateinfo "displaymodel" "ET5000"
 	updateinfo "model" "et5000"
 elif [ "$MACHINE" = "et6x00" ]; then
 	if [ "$model" = "et6000" ]; then
+		updateinfo "displaymodel" "ET6000"
 		updateinfo "model" "et6000"
 	elif [ "$model" = "et6500" ]; then
+		updateinfo "displaymodel" "ET6500"
 		updateinfo "model" "et6500"
 	fi
 elif [ "$MACHINE" = "et7x00" ]; then
 	if [ "$model" = "et7000" ]; then
 		updateinfo "model" "et7000"
+		if [ -f $CHIPSET ]; then
+			chip=$(head -n 1 $CHIPSET)
+		else
+			chip=""
+		fi
+		if [ "$chip" = "bcm73625" ]; then
+			updateinfo "displaymodel" "ET7100 V2"
+		else
+			updateinfo "displaymodel" "ET7000"
+		fi
 	elif [ "$model" = "et7500" ]; then
+		updateinfo "displaymodel" "ET7500"
 		updateinfo "model" "et7500"
 	fi
 elif [ "$MACHINE" = "et9x00" ]; then
 	if [ "$model" = "et9000" ]; then
+		updateinfo "displaymodel" "ET9000"
 		updateinfo "model" "et9000"
+	elif [ "$model" = "et9100" ]; then
+		updateinfo "displaymodel" "ET9100"
+		updateinfo "model" "et9100"
 	elif [ "$model" = "et9200" ]; then
+		updateinfo "displaymodel" "ET9100"
 		updateinfo "model" "et9200"
-	fi
 	elif [ "$model" = "et9500" ]; then
+		updateinfo "displaymodel" "ET9500"
 		updateinfo "model" "et9500"
 	fi
 
