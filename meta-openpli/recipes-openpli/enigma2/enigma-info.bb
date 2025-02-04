@@ -360,7 +360,7 @@ PROC_MODEL=/proc/stb/info/model
 PROC_HWMODEL=/proc/stb/info/hwmodel
 PROC_BOXTYPE=/proc/stb/info/boxtype
 PROC_TYPE=/proc/stb/info/type
-CHIPSET=proc/stb/info/chipset
+CHIPSET=/proc/stb/info/chipset
 WIFI1=/sys/devices/platform/soc/f9890000.ehci/usb1/1-1/idProduct
 WIFI2=/sys/devices/platform/soc/f9890000.ehci/usb1/1-2/idProduct
 
