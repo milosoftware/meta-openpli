@@ -389,7 +389,7 @@ startswith() { prefix=$1; value=$2; case $prefix in "$value"*) return 0;; esac; 
 #
 # update TMPFILE with new information
 #
-updateinfo() { key=$1; value=$2; sed -i "s/^${key}=.*/$key=$value/" $TMPFILE; }
+updateinfo() { key=$1; value=$2; sed -i "s/^${key}=\('?\).*\('?\)/$key=\1$value\2/" $TMPFILE; }
 
 #
 # add the runime values to the enigma.info file
