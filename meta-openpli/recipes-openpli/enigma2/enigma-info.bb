@@ -400,7 +400,7 @@ TMPFILE=$(mktemp /tmp/enigma-info.XXXXXX)
 grep -v checksum $INFOFILE > $TMPFILE
 
 # get the machine name for this image
-MACHINE=`grep "machine=" $TMPFILE | cut -d '=' -f 2`
+MACHINE=`grep "machine=" $TMPFILE | sed -n "/^machine=/ s/'//g;s/^machine=//p"`
 
 # get runtime data
 type=`hwtype`
