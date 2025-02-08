@@ -1,8 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-PV = "1.24.10"
+PV = "1.24.12"
 
-SRC_URI[sha256sum] = "1707e3103950c9baed364a8af2ba0495d6b113fcd36e1062dda5f582b8f8904d"
+SRC_URI[sha256sum] = "3d386af3d1dbd1a06c74a6251250c269b481e703f0e3255ba89ef6c1e063afea"
 
 SRC_URI:append = "file://001-rtmp-hls-tsdemux-fix.patch \
                   file://003-rtmp-fix-seeking-and-potential-segfault.patch \
