@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/sbin/ntpd -qg
+/usr/sbin/ntpd -g
