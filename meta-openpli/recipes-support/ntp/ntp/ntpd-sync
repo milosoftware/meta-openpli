@@ -1,2 +1,5 @@
 #!/bin/sh
-/usr/sbin/ntpd -gq
+if [ -f /etc/init.d/ntpd ]; then
+    /etc/init.d/ntpd stop
+    /etc/init.d/ntpd start
+fi
