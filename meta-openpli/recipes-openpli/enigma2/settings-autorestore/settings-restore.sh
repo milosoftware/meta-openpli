@@ -10,6 +10,7 @@ function restartNetwork
 	[ -f /etc/init.d/avahi-daemon ] && /etc/init.d/avahi-daemon stop
 	/etc/init.d/networking stop
 	killall -9 udhcpc
+	killall -9 ntpd
 	rm /var/run/udhcpc*
 
 	# enumerate network interfaces
@@ -38,7 +39,7 @@ function restartNetwork
 	done
 
 	[ -f /etc/init.d/ntpd ] && /etc/init.d/ntpd start
-	/usr/sbin/ntpd -g
+	/usr/sbin/ntpd -gq
 }
 
 # ---[ main ]---------------------------------------
