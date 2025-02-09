@@ -38,6 +38,7 @@ function restartNetwork
 	done
 
 	[ -f /etc/init.d/ntpd ] && /etc/init.d/ntpd start
+	/usr/sbin/ntpd -gq
 }
 
 # ---[ main ]---------------------------------------
