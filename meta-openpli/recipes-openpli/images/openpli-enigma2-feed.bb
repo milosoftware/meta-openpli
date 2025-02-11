@@ -114,7 +114,6 @@ OPTIONAL_PACKAGES += " \
 	\
 	phodav \
 	ntfs-3g \
-	ntp \
 	openssh \
 	openvpn \
 	openmultiboot \

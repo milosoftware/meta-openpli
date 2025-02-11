@@ -69,6 +69,8 @@ IMAGE_INSTALL += " \
 	avahi-daemon \
 	busybox-cron \
 	ca-certificates \
+	chrony \
+	chronyc \
 	cifs-utils \
 	distro-feed-configs \
 	dropbear \
@@ -83,8 +85,6 @@ IMAGE_INSTALL += " \
 	modutils-loadscript \
 	nfs-utils \
 	nfs-utils-client \
-	ntp \
-	ntpq \
 	ofgwrite \
 	openpli-bootlogo \
 	openresolv \

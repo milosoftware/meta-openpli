@@ -6,11 +6,9 @@
 function restartNetwork 
 {
 	# stop network services
-	[ -f /etc/init.d/ntpd ] && /etc/init.d/ntpd stop
 	[ -f /etc/init.d/avahi-daemon ] && /etc/init.d/avahi-daemon stop
 	/etc/init.d/networking stop
 	killall -9 udhcpc
-	killall -9 ntpd
 	rm /var/run/udhcpc*
 
 	# enumerate network interfaces
@@ -38,7 +36,8 @@ function restartNetwork
 		sleep 1
 	done
 
-	[ -f /etc/init.d/ntpd ] && /etc/init.d/ntpd start
+	# restart the ntp client
+	[ -f /etc/init.d/chronyd ] && /etc/init.d/chronyd reload
 }
 
 # ---[ main ]---------------------------------------
@@ -124,10 +123,10 @@ fi
 if [ "$1x" == "networkx" ]; then
 	if [ -f ${BACKUPDIR}/backup/PLi-AutoBackup${MACADDR}.tar.gz ]; then
 		echo "Restoring network config from: ${BACKUPDIR}/backup/ for ${MACADDR}"
-		tar -xzf ${BACKUPDIR}/backup/PLi-AutoBackup${MACADDR}.tar.gz etc/network/ etc/wpa\* -C /
+		tar -xzf ${BACKUPDIR}/backup/PLi-AutoBackup${MACADDR}.tar.gz etc/network/ etc/wpa\* etc/chrony.conf -C /
 	elif [ -f ${BACKUPDIR}/backup/PLi-AutoBackup.tar.gz ]; then
 		echo "Restoring network config from: ${BACKUPDIR}/backup/"
-		tar -xzf ${BACKUPDIR}/backup/PLi-AutoBackup.tar.gz etc/network/ etc/wpa\* -C /
+		tar -xzf ${BACKUPDIR}/backup/PLi-AutoBackup.tar.gz etc/network/ etc/wpa\* etc/chrony.conf -C /
 	else
 		echo "PLi-AutoBackup.tar.gz not found"
 		exit 1

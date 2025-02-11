@@ -1,5 +1,0 @@
-#!/bin/sh
-if [ -f /etc/init.d/ntpd ]; then
-    /etc/init.d/ntpd stop
-    /etc/init.d/ntpd start
-fi
