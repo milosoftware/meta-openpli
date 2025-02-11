@@ -1,0 +1,26 @@
+From 96bad843ae294d9ddbcde04a472a3ea69f1a6c27 Mon Sep 17 00:00:00 2001
+From: Hains van den Bosch <hainsvdbosch@ziggo.nl>
+Date: Tue, 11 Feb 2025 02:56:06 +0100
+Subject: [PATCH] subtitles.py: Fix subtitles download
+
+We have no symlink from Python to Python3 by default.
+---
+ plugin/subtitles.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/plugin/subtitles.py b/plugin/subtitles.py
+index c4f5e44..f946cc7 100644
+--- a/plugin/subtitles.py
++++ b/plugin/subtitles.py
+@@ -3053,7 +3053,7 @@ class SubsSearchProcess(object):
+     def start(self, params, callbacks):
+         self.processes.append(self)
+         self.callbacks = callbacks
+-        cmd = "python %s" % self.process_path
++        cmd = "python3 %s" % self.process_path
+         self.log.debug("start - '%s'", cmd)
+         self.appContainer.execute(cmd)
+         self.write(params)
+-- 
+2.45.2
+

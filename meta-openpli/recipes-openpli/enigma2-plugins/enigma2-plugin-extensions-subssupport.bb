@@ -10,8 +10,10 @@ RDEPENDS:${PN} = "python3-requests python3-xmlrpc python3-compression python3-co
 
 inherit autotools-brokensep gettext gittag python3native python3-compileall
 
-SRC_URI = "git://github.com/oe-mirrors/subssupport;protocol=https;branch=master"
-SRC_URI:append = " file://0002-python3-hardlink.patch"
+SRC_URI = "git://github.com/oe-mirrors/subssupport;protocol=https;branch=master \
+           file://0001-Fix-subtitles-download.patch \
+           file://0002-python3-hardlink.patch \
+"
 
 S = "${WORKDIR}/git"
 
