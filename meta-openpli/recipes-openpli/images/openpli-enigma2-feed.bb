@@ -165,6 +165,7 @@ OPTIONAL_PACKAGES += " \
 	transmission \
 	udpxy \
 	unzip \
+	upx \
 	usb-modeswitch \
 	usb-modeswitch-data \
 	v4l-utils \
