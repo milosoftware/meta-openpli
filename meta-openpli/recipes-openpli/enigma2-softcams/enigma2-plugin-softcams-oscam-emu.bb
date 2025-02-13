@@ -1,66 +1,6 @@
-require conf/license/openpli-gplv2.inc
-require softcam.inc
-inherit cmake
-inherit gitpkgv
+require oscam-common.inc
 
-DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
-LICENSE = "GPL-3.0-only"
-LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
+SRC_ORIGIN ?= "git://github.com/oscam-mirror/oscam-emu.git;protocol=https;branch=master"
 
-PV = "git"
-PKGV = "git${GITPKGV}"
-
-SRC_ORIGIN ?= "git://git.streamboard.tv/common/oscam.git;protocol=https;branch=master"
-SRC_URI := "${SRC_ORIGIN} \
-        file://oscam-emu.patch"
-
-DEPENDS = "libusb openssl libdvbcsa"
-RDEPENDS:${PN} += "enigma2-plugin-extensions-oscamstatus libdvbcsa libusb1"
-
-LDFLAGS:prepend = "-ludev -ldvbcsa "
-
-S = "${WORKDIR}/git"
-B = "${S}"
+CAMTITLE = "OSCam-Emu ${PV}: Open Source Softcam with Emulator"
 CAMNAME = "oscam-emu"
-CAMSTART = "/usr/bin/oscam-emu --wait 60 --config-dir /etc/tuxbox/config/oscam-emu --daemon --pidfile /tmp/oscam-emu.pid --restart 2"
-CAMSTOP = "kill \`cat /tmp/oscam-emu.pid\` 2> /dev/null"
-
-SRC_URI += " \
-	file://oscam.conf \
-	file://oscam.server \
-	file://oscam.srvid \
-	file://oscam.user \
-	file://oscam.dvbapi \
-	file://oscam.provid"
-
-CONFFILES = "${sysconfdir}/tuxbox/config/oscam-emu/oscam.conf ${sysconfdir}/tuxbox/config/oscam-emu/oscam.server ${sysconfdir}/tuxbox/config/oscam-emu/oscam.srvid ${sysconfdir}/tuxbox/config/oscam-emu/oscam.user ${sysconfdir}/tuxbox/config/oscam-emu/oscam.dvbapi ${sysconfdir}/tuxbox/config/oscam-emu/oscam.provid"
-
-FILES:${PN} = "${bindir}/oscam-emu ${sysconfdir}/tuxbox/config/oscam-emu/* ${sysconfdir}/init.d/softcam.oscam-emu"
-
-EXTRA_OECMAKE += "\
-	-DOSCAM_SYSTEM_NAME=Tuxbox \
-	-DWEBIF=1 \
-	-DWITH_STAPI=0 \
-	-DHAVE_LIBUSB=1 \
-	-DSTATIC_LIBUSB=0 \
-	-DWITH_SSL=1 \
-	-DIPV6SUPPORT=1 \
-	-DCLOCKFIX=0 \
-	-DHAVE_PCSC=1 \
-	-DCARDREADER_SMARGO=1 \
-	-DCARDREADER_PCSC=1 \
-	-DCW_CYCLE_CHECK=1 \
-	-DCS_CACHEEX=1 \
-	-DMODULE_CONSTCW=1 \
-	-DLCDSUPPORT=1 \
-	-DMODULE_SCAM=1 \
-	-DMODULE_STREAMRELAY=1 \
-	-DHAVE_LIBDVBCSA=1 \
-	"
-
-do_install() {
-	install -d ${D}${sysconfdir}/tuxbox/config/oscam-emu
-	install -m 0644 ${WORKDIR}/oscam.* ${D}${sysconfdir}/tuxbox/config/oscam-emu
-	install -d ${D}${bindir}
-	install -m 0755 ${B}/oscam ${D}${bindir}/oscam-emu
-}
