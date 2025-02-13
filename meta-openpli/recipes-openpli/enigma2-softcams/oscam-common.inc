@@ -12,9 +12,9 @@ PKGV = "${GITPKGVTAG}"
 SRC_URI := "${SRC_ORIGIN} "
 
 DEPENDS = "libusb openssl libdvbcsa openssl-native upx-native"
-RDEPENDS_${PN} += "enigma2-plugin-extensions-oscamstatus libdvbcsa libusb1"
+RDEPENDS:${PN} += "enigma2-plugin-extensions-oscamstatus libdvbcsa libusb1"
 
-LDFLAGS_prepend = "-ludev -ldvbcsa "
+LDFLAGS:prepend = "-ludev -ldvbcsa "
 
 S = "${WORKDIR}/git"
 B = "${S}"
@@ -32,7 +32,7 @@ SRC_URI += " \
 
 CONFFILES = "${sysconfdir}/tuxbox/config/${CAMNAME}/oscam.conf ${sysconfdir}/tuxbox/config/${CAMNAME}/oscam.server ${sysconfdir}/tuxbox/config/${CAMNAME}/oscam.srvid ${sysconfdir}/tuxbox/config/${CAMNAME}/oscam.user ${sysconfdir}/tuxbox/config/${CAMNAME}/oscam.dvbapi ${sysconfdir}/tuxbox/config/${CAMNAME}/oscam.provid"
 
-FILES_${PN} = "${bindir}/${CAMNAME} ${sysconfdir}/tuxbox/config/${CAMNAME}/* ${sysconfdir}/init.d/softcam.${CAMNAME}"
+FILES:${PN} = "${bindir}/${CAMNAME} ${sysconfdir}/tuxbox/config/${CAMNAME}/* ${sysconfdir}/init.d/softcam.${CAMNAME}"
 
 EXTRA_OECMAKE += "\
 	-DOSCAM_SYSTEM_NAME=Tuxbox \
