@@ -1036,6 +1036,17 @@
         ],
         "cached": []
     },
+    "zoneinfo": {
+        "summary": "IANA time zone support",
+        "rdepends": [
+            "core"
+        ],
+        "files": [
+            "${libdir}/python${PYTHON_MAJMIN}/zoneinfo",
+            "${libdir}/python${PYTHON_MAJMIN}/lib-dynload/_zoneinfo.*.so"
+        ],
+       "cached": []
+    },
     "misc": {
         "summary": "Python Miscellaneous",
         "rdepends": [
