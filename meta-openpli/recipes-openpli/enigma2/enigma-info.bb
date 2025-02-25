@@ -344,13 +344,6 @@ do_deploy() {
 
 addtask deploy before do_package after do_install
 
-pkg_preinst_${PN} () {
-#!/bin/sh
-set -e
-
-rm -f /usr/lib/enigma.info
-}
-
 pkg_postinst_ontarget_${PN} () {
 #!/bin/sh
 set -e
@@ -367,6 +360,7 @@ PROC_MODEL=/proc/stb/info/model
 PROC_HWMODEL=/proc/stb/info/hwmodel
 PROC_BOXTYPE=/proc/stb/info/boxtype
 PROC_TYPE=/proc/stb/info/type
+CHIPSET=/proc/stb/info/chipset
 WIFI1=/sys/devices/platform/soc/f9890000.ehci/usb1/1-1/idProduct
 WIFI2=/sys/devices/platform/soc/f9890000.ehci/usb1/1-2/idProduct
 
@@ -395,7 +389,7 @@ startswith() { prefix=$1; value=$2; case $prefix in "$value"*) return 0;; esac; 
 #
 # update TMPFILE with new information
 #
-updateinfo() { key=$1; value=$2; sed -i "s/^${key}=.*/$key=$value/" $TMPFILE; }
+updateinfo() { key=$1; value=$2; sed -i "s/^${key}=\('\?\).*/$key=\1$value\1/" $TMPFILE; }
 
 #
 # add the runime values to the enigma.info file
@@ -406,7 +400,7 @@ TMPFILE=$(mktemp /tmp/enigma-info.XXXXXX)
 grep -v checksum $INFOFILE > $TMPFILE
 
 # get the machine name for this image
-MACHINE=`grep "machine=" $TMPFILE | cut -d '=' -f 2`
+MACHINE=`grep "machine=" $TMPFILE | sed -n "/^machine=/ s/'//g;s/^machine=//p"`
 
 # get runtime data
 type=`hwtype`
@@ -486,6 +480,7 @@ elif [ "$MACHINE" = "h9combo" ]; then
 	if [ "$model" = "h9twin"  -o  "$model" = "h9 twin"  ]; then
 		updateinfo "displaymodel" "H9 TWIN"
 		updateinfo "machinebuild" "zgemmah9twin"
+		updateinfo "model" "h9twin"
 	elif [ "$model" = "h9combo" ]; then
 		updateinfo "displaymodel" "H9 COMBO"
 		updateinfo "machinebuild" "zgemmah9combo"
@@ -512,6 +507,7 @@ elif [ "$MACHINE" = "h9combose" ]; then
 	if [ "$model" = "h9twinse" ]; then
 		updateinfo "displaymodel" "H9 TWIN SE"
 		updateinfo "machinebuild" "zgemmah9twinse"
+		updateinfo "model" "h9twinse"
 	elif [ "$model" = "h9combose" ]; then
 		updateinfo "displaymodel" "H9 COMBO SE"
 		updateinfo "machinebuild" "zgemmah9combose"
@@ -560,6 +556,53 @@ elif [ "$MACHINE" = "sfx6008" ]; then
 		fi
 	fi
 
+# runtime fixes for the Xtrend
+elif [ "$MACHINE" = "et4x00" ]; then
+	updateinfo "displaymodel" "ET4000"
+	updateinfo "model" "et4000"
+elif [ "$MACHINE" = "et5x00" ]; then
+	updateinfo "displaymodel" "ET5000"
+	updateinfo "model" "et5000"
+elif [ "$MACHINE" = "et6x00" ]; then
+	if [ "$model" = "et6000" ]; then
+		updateinfo "displaymodel" "ET6000"
+		updateinfo "model" "et6000"
+	elif [ "$model" = "et6500" ]; then
+		updateinfo "displaymodel" "ET6500"
+		updateinfo "model" "et6500"
+	fi
+elif [ "$MACHINE" = "et7x00" ]; then
+	if [ "$model" = "et7000" ]; then
+		updateinfo "model" "et7000"
+		if [ -f $CHIPSET ]; then
+			chip=$(head -n 1 $CHIPSET)
+		else
+			chip=""
+		fi
+		if [ "$chip" = "bcm73625" ]; then
+			updateinfo "displaymodel" "ET7100 V2"
+		else
+			updateinfo "displaymodel" "ET7000"
+		fi
+	elif [ "$model" = "et7500" ]; then
+		updateinfo "displaymodel" "ET7500"
+		updateinfo "model" "et7500"
+	fi
+elif [ "$MACHINE" = "et9x00" ]; then
+	if [ "$model" = "et9000" ]; then
+		updateinfo "displaymodel" "ET9000"
+		updateinfo "model" "et9000"
+	elif [ "$model" = "et9100" ]; then
+		updateinfo "displaymodel" "ET9100"
+		updateinfo "model" "et9100"
+	elif [ "$model" = "et9200" ]; then
+		updateinfo "displaymodel" "ET9200"
+		updateinfo "model" "et9200"
+	elif [ "$model" = "et9500" ]; then
+		updateinfo "displaymodel" "ET9500"
+		updateinfo "model" "et9500"
+	fi
+
 # runtime fixes for the Uclan Ustym 4K Pro
 elif [ "$MACHINE" = "ustym4kpro" ]; then
 	if [ -f $WIFI2 ]; then
@@ -579,8 +622,7 @@ fi
 # re-add the checksum
 MD5SUM=`md5sum $TMPFILE | cut -d ' ' -f 1`
 echo "checksum=$MD5SUM" >> $TMPFILE
-cp -f $TMPFILE $INFOFILE
-mv -f $TMPFILE /tmp/enigma.info
+mv $TMPFILE $INFOFILE
 
 exit 0
 }
